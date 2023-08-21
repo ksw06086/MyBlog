@@ -2,7 +2,7 @@
 
 import logo from './logo.svg';
 import './App.css';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 function App() {
 
@@ -57,6 +57,7 @@ function App() {
 
       {/* 상세페이지 화면 */}
       { modal ? <Modal clickId={clickId} /> : null }
+      <Modal2 />
     </div>
   );
 }
@@ -71,5 +72,27 @@ function Modal(props) {
     </div>
   );
 }
+
+class Modal2 extends React.Component {
+  // constructor, super, render 채워넣음
+  constructor(props) {
+    super(props);
+    this.state = {
+      name : 'kim',
+      age : 20
+    }
+  }
+
+  render() {
+    return (
+      <div>안녕 {this.props}
+        <button onClick={()=>{
+          this.setState({ name : 'Mike' });
+        }}>버튼</button>
+      </div>
+    );
+  }
+}
+
 
 export default App;
